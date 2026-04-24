@@ -15,7 +15,7 @@
   .date-line { font-family: 'Overpass', sans-serif; font-size: 13px; color: #B0A090; margin-top: 6px; }
 
   .nav { display: flex; justify-content: center; border-bottom: 1px solid #E5D9CC; margin: 24px 0 28px; }
-  .nav-btn { background: none; border: none; cursor: pointer; padding: 10px 28px; font-family: 'Overpass', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #B0A090; border-bottom: 2px solid transparent; font-weight: 400; transition: all 0.2s; }
+  .nav-btn { background: none; border: none; cursor: pointer; padding: 10px 20px; font-family: 'Overpass', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #B0A090; border-bottom: 2px solid transparent; font-weight: 400; transition: all 0.2s; }
   .nav-btn.active { color: #C4847A; border-bottom: 2px solid #C4847A; font-weight: 700; }
 
   .content { max-width: 460px; margin: 0 auto; padding: 0 18px 60px; }
@@ -26,6 +26,14 @@
   .card-label { font-family: 'Noto Serif', serif; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #B0A090; font-weight: 400; margin-bottom: 4px; }
   .card-sub { font-family: 'Overpass', sans-serif; font-size: 13px; color: #B0A090; margin-bottom: 18px; }
   .level-name { font-family: 'Dancing Script', cursive; font-size: 28px; font-weight: 600; margin-bottom: 18px; }
+
+  /* Date selector */
+  .date-selector { display: flex; gap: 8px; margin-bottom: 0; }
+  .date-tab { flex: 1; padding: 10px; border-radius: 12px; border: 2px solid #E5D9CC; background: none; cursor: pointer; font-family: 'Overpass', sans-serif; font-size: 12px; color: #B0A090; transition: all 0.2s; text-align: center; }
+  .date-tab.active { border-color: #C4847A; color: #C4847A; font-weight: 700; background: #FDF5F0; }
+  .date-picker-wrap { margin-top: 12px; }
+  input[type="date"] { width: 100%; padding: 10px 14px; border: 2px solid #E5D9CC; border-radius: 12px; font-family: 'Overpass', sans-serif; font-size: 14px; color: #3D2B1F; background: #F7F0E6; outline: none; }
+  input[type="date"]:focus { border-color: #C4847A; }
 
   .dots { display: flex; gap: 10px; justify-content: center; margin-bottom: 12px; }
   .dot { width: 50px; height: 50px; border-radius: 50%; background: #F0E8DE; border: 3px solid transparent; display: flex; align-items: center; justify-content: center; color: #C8B8A8; font-family: 'Overpass', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.25s; }
@@ -44,22 +52,40 @@
   .save-btn.saved { background: #8A9E8C; }
   .saved-msg { text-align: center; margin-top: 14px; font-family: 'Dancing Script', cursive; font-size: 22px; color: #8A9E8C; }
 
-  .today-banner { text-align: center; margin-bottom: 18px; background: #EEF4EE; border-radius: 12px; padding: 10px 18px; font-family: 'Overpass', sans-serif; font-size: 12px; color: #6B8F6E; letter-spacing: 1px; }
+  .info-banner { text-align: center; margin-bottom: 18px; border-radius: 12px; padding: 10px 18px; font-family: 'Overpass', sans-serif; font-size: 12px; letter-spacing: 1px; }
+  .banner-green { background: #EEF4EE; color: #6B8F6E; }
+  .banner-rose  { background: #FDF0EC; color: #C4847A; }
 
+  /* Settings */
+  .settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+  .settings-label { font-family: 'Overpass', sans-serif; font-size: 13px; color: #5A3E30; }
+  .settings-sub { font-family: 'Overpass', sans-serif; font-size: 11px; color: #B0A090; margin-top: 2px; }
+  input[type="time"] { padding: 10px 14px; border: 2px solid #E5D9CC; border-radius: 12px; font-family: 'Overpass', sans-serif; font-size: 14px; color: #3D2B1F; background: #F7F0E6; outline: none; }
+  input[type="time"]:focus { border-color: #C4847A; }
+  .toggle { position: relative; width: 46px; height: 26px; flex-shrink: 0; }
+  .toggle input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider { position: absolute; inset: 0; background: #E5D9CC; border-radius: 26px; cursor: pointer; transition: 0.3s; }
+  .toggle-slider:before { content: ''; position: absolute; width: 20px; height: 20px; left: 3px; top: 3px; background: white; border-radius: 50%; transition: 0.3s; }
+  .toggle input:checked + .toggle-slider { background: #C4847A; }
+  .toggle input:checked + .toggle-slider:before { transform: translateX(20px); }
+  .notif-status { font-family: 'Overpass', sans-serif; font-size: 12px; padding: 10px 16px; border-radius: 12px; margin-top: 12px; }
+  .notif-ok   { background: #EEF4EE; color: #6B8F6E; }
+  .notif-warn { background: #FDF0EC; color: #C4847A; }
+  .notif-info { background: #F0EBF8; color: #8A6A9A; }
+
+  /* History */
   .summary-card { background: #F0E8DE; border-radius: 20px; padding: 20px 24px; margin-bottom: 16px; }
   .weekday-card { background: #EEF4EE; border-radius: 20px; padding: 20px 24px; margin-bottom: 24px; }
   .summary-avg { font-family: 'Dancing Script', cursive; font-size: 36px; color: #C4847A; }
   .summary-label { font-family: 'Overpass', sans-serif; font-size: 12px; color: #B0A090; margin-left: 6px; }
-
   .weekday-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
   .weekday-name { font-family: 'Overpass', sans-serif; font-size: 12px; color: #8A6A5A; width: 80px; flex-shrink: 0; }
   .weekday-bar-wrap { flex: 1; background: #E8DED4; border-radius: 20px; height: 10px; }
-  .weekday-bar { height: 10px; border-radius: 20px; transition: width 0.4s; }
+  .weekday-bar { height: 10px; border-radius: 20px; }
   .weekday-val { font-family: 'Dancing Script', cursive; font-size: 16px; width: 28px; text-align: right; flex-shrink: 0; }
   .weekday-badge { font-family: 'Overpass', sans-serif; font-size: 10px; padding: 2px 8px; border-radius: 20px; flex-shrink: 0; }
   .badge-best { background: #8A9E8C; color: white; }
   .badge-worst { background: #C4847A22; color: #C4847A; }
-
   .history-row { background: #FFFCF8; border-radius: 16px; padding: 18px 20px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(61,43,31,0.05); display: flex; align-items: center; gap: 16px; }
   .history-dot { width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: white; font-family: 'Overpass', sans-serif; font-weight: 700; font-size: 18px; }
   .history-date { font-family: 'Overpass', sans-serif; font-size: 11px; color: #B0A090; margin-bottom: 2px; }
@@ -90,105 +116,212 @@
 <div class="nav">
   <button class="nav-btn active" onclick="showView('checkin', this)">Check-in</button>
   <button class="nav-btn" onclick="showView('history', this)" id="historyNavBtn">Verlauf</button>
+  <button class="nav-btn" onclick="showView('settings', this)">Einstellungen</button>
 </div>
 
 <div class="content">
 
+  <!-- CHECK-IN -->
   <div class="view active" id="view-checkin">
-    <div class="today-banner" id="todayBanner" style="display:none">
-      ✓ Heute bereits eingetragen — du kannst es überschreiben
+    <div class="info-banner banner-green" id="todayBanner" style="display:none">
+      ✓ Bereits eingetragen — du kannst es überschreiben
     </div>
+    <div class="info-banner banner-rose" id="yesterdayBanner" style="display:none">
+      Du trägst für gestern nach
+    </div>
+
+    <!-- Datum -->
     <div class="card">
-      <p class="card-label">Wie voll ist dein Tank heute?</p>
+      <p class="card-label">Für welchen Tag?</p>
+      <div class="date-selector" style="margin-top:8px">
+        <button class="date-tab active" id="tabToday" onclick="selectDateTab('today')">Heute</button>
+        <button class="date-tab" id="tabYesterday" onclick="selectDateTab('yesterday')">Gestern</button>
+        <button class="date-tab" id="tabOther" onclick="selectDateTab('other')">Anderer Tag</button>
+      </div>
+      <div class="date-picker-wrap" id="datepickerWrap" style="display:none">
+        <input type="date" id="customDate" onchange="updateSelectedDate()">
+      </div>
+    </div>
+
+    <!-- Level -->
+    <div class="card">
+      <p class="card-label">Wie voll war dein Tank?</p>
       <p class="level-name" id="levelName">Mittel</p>
       <div class="dots" id="dots"></div>
       <div class="dot-labels"><span>leer</span><span>voll</span></div>
     </div>
+
+    <!-- Kraftquellen -->
     <div class="card">
-      <p class="card-label">Was hat dir Kraft gegeben?</p>
+      <p class="card-label">Was hat Kraft gegeben?</p>
       <p class="card-sub">Alles was passt, auch mehreres.</p>
       <div class="tags" id="tags"></div>
     </div>
+
+    <!-- Energieräuber -->
     <div class="card">
       <p class="card-label">Was hat Energie gezogen?</p>
       <p class="card-sub">Auch hier: alles was passt.</p>
       <div class="tags" id="drains"></div>
     </div>
+
+    <!-- Notiz -->
     <div class="card">
       <p class="card-label">Notiz</p>
       <textarea id="noteInput" rows="3" placeholder="Was möchtest du dir merken? (optional)"></textarea>
     </div>
+
     <button class="save-btn" id="saveBtn" onclick="saveEntry()">Eintragen</button>
     <p class="saved-msg" id="savedMsg" style="display:none">Gut, dass du dir Zeit nimmst. 🌿</p>
   </div>
 
+  <!-- HISTORY -->
   <div class="view" id="view-history">
     <div id="historyContent"></div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="view" id="view-settings">
+    <div class="card">
+      <p class="card-label" style="margin-bottom:16px">Abend-Erinnerung</p>
+
+      <div class="settings-row">
+        <div>
+          <p class="settings-label">Erinnerung aktiv</p>
+          <p class="settings-sub">Benachrichtigung zum Eintragen</p>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="notifToggle" onchange="toggleNotification()">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-row" id="timeRow" style="opacity:0.4;pointer-events:none">
+        <div>
+          <p class="settings-label">Uhrzeit</p>
+        </div>
+        <input type="time" id="reminderTime" value="20:00" onchange="saveReminderTime()">
+      </div>
+
+      <div id="notifStatus"></div>
+
+      <p style="font-family:'Overpass',sans-serif;font-size:11px;color:#C0B0A0;margin-top:16px;line-height:1.6">
+        Hinweis: Die Erinnerung funktioniert zuverlässig auf dem Desktop, solange der Browser geöffnet ist. Auf dem iPhone ist sie leider technisch nicht möglich.
+      </p>
+    </div>
   </div>
 
 </div>
 
 <script>
-const STORAGE_KEY = 'wild-moms-energie-tracker-v1';
+const STORAGE_KEY  = 'wild-moms-energie-tracker-v1';
+const SETTINGS_KEY = 'wild-moms-settings-v1';
 
 const LEVELS = [
-  { value: 1, label: 'Leer',   color: '#C4847A' },
-  { value: 2, label: 'Wenig',  color: '#D4A078' },
-  { value: 3, label: 'Mittel', color: '#C9A97A' },
-  { value: 4, label: 'Gut',    color: '#8A9E8C' },
-  { value: 5, label: 'Voll',   color: '#6B8F6E' },
+  { value:1, label:'Leer',   color:'#C4847A' },
+  { value:2, label:'Wenig',  color:'#D4A078' },
+  { value:3, label:'Mittel', color:'#C9A97A' },
+  { value:4, label:'Gut',    color:'#8A9E8C' },
+  { value:5, label:'Voll',   color:'#6B8F6E' },
 ];
-
 const TAGS = [
-  { id: 'natur',      label: 'Natur',       icon: '🌿' },
-  { id: 'ruhe',       label: 'Ruhe',        icon: '🌙' },
-  { id: 'bewegung',   label: 'Bewegung',    icon: '✨' },
-  { id: 'verbindung', label: 'Verbindung',  icon: '🤝' },
-  { id: 'allein',     label: 'Allein-Zeit', icon: '☕' },
-  { id: 'kreativ',    label: 'Kreativität', icon: '🎨' },
-  { id: 'wellness',   label: 'Wellness',    icon: '🛁' },
-  { id: 'kraftort',   label: 'Kraftort',    icon: '🏔️' },
-  { id: 'kind',       label: 'Kind',        icon: '🧡' },
-  { id: 'job',        label: 'Job',         icon: '💼' },
-  { id: 'tiere',      label: 'Tiere',       icon: '🐾' },
-  { id: 'hobby',      label: 'Hobby',       icon: '🌻' },
-  { id: 'musik',      label: 'Musik',       icon: '🎵' },
+  { id:'natur',      label:'Natur',       icon:'🌿' },
+  { id:'ruhe',       label:'Ruhe',        icon:'🌙' },
+  { id:'bewegung',   label:'Bewegung',    icon:'✨' },
+  { id:'verbindung', label:'Verbindung',  icon:'🤝' },
+  { id:'allein',     label:'Allein-Zeit', icon:'☕' },
+  { id:'kreativ',    label:'Kreativität', icon:'🎨' },
+  { id:'wellness',   label:'Wellness',    icon:'🛁' },
+  { id:'kraftort',   label:'Kraftort',    icon:'🏔️' },
+  { id:'kind',       label:'Kind',        icon:'🧡' },
+  { id:'job',        label:'Job',         icon:'💼' },
+  { id:'tiere',      label:'Tiere',       icon:'🐾' },
+  { id:'hobby',      label:'Hobby',       icon:'🌻' },
+  { id:'musik',      label:'Musik',       icon:'🎵' },
 ];
-
 const DRAINS = [
-  { id: 'schlaf',         label: 'Schlafmangel',       icon: '😴' },
-  { id: 'mental_load',    label: 'Mental Load',         icon: '🌀' },
-  { id: 'konflikt',       label: 'Konflikt',            icon: '⚡' },
-  { id: 'ueberforderung', label: 'Überforderung',       icon: '🌊' },
-  { id: 'einsamkeit',     label: 'Einsamkeit',          icon: '🪨' },
-  { id: 'selbstkritik',   label: 'Selbstkritik',        icon: '🔁' },
-  { id: 'handy',          label: 'Zu viel Handy',       icon: '📱' },
-  { id: 'keine_zeit',     label: 'Keine Zeit für mich', icon: '⏳' },
-  { id: 'zyklus',         label: 'Zyklus',              icon: '🩸' },
-  { id: 'verantwortung',  label: 'Verantwortung',       icon: '⚖️' },
-  { id: 'job',            label: 'Job',                 icon: '💼' },
+  { id:'schlaf',         label:'Schlafmangel',        icon:'😴' },
+  { id:'mental_load',    label:'Mental Load',          icon:'🌀' },
+  { id:'konflikt',       label:'Konflikt',             icon:'⚡' },
+  { id:'ueberforderung', label:'Überforderung',        icon:'🌊' },
+  { id:'einsamkeit',     label:'Einsamkeit',           icon:'🪨' },
+  { id:'selbstkritik',   label:'Selbstkritik',         icon:'🔁' },
+  { id:'handy',          label:'Zu viel Handy',        icon:'📱' },
+  { id:'keine_zeit',     label:'Keine Zeit für mich',  icon:'⏳' },
+  { id:'zyklus',         label:'Zyklus',               icon:'🩸' },
+  { id:'verantwortung',  label:'Verantwortung',        icon:'⚖️' },
+  { id:'job',            label:'Job',                  icon:'💼' },
 ];
-
 const WEEKDAYS = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
 
-let currentLevel = 3;
-let selectedTags = [];
+let currentLevel   = 3;
+let selectedTags   = [];
 let selectedDrains = [];
+let selectedDate   = todayISO();
+let reminderInterval = null;
 
 const now = new Date();
 document.getElementById('dateLine').textContent =
   now.toLocaleDateString('de-DE', { weekday:'long', day:'numeric', month:'long' });
 
-function loadEntries() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
-  catch { return []; }
+function todayISO() { return new Date().toISOString().split('T')[0]; }
+function yesterdayISO() {
+  const d = new Date(); d.setDate(d.getDate() - 1);
+  return d.toISOString().split('T')[0];
 }
-function saveEntries(e) { localStorage.setItem(STORAGE_KEY, JSON.stringify(e)); }
 
-// Dots
+function loadEntries() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch { return []; } }
+function saveEntries(e) { localStorage.setItem(STORAGE_KEY, JSON.stringify(e)); }
+function loadSettings() { try { return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || {}; } catch { return {}; } }
+function saveSettings(s) { localStorage.setItem(SETTINGS_KEY, JSON.stringify(s)); }
+
+// ── Date selection ──
+function selectDateTab(tab) {
+  ['today','yesterday','other'].forEach(t => {
+    document.getElementById('tab' + t.charAt(0).toUpperCase() + t.slice(1)).classList.remove('active');
+  });
+  document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
+
+  const picker = document.getElementById('datepickerWrap');
+  if (tab === 'today') {
+    selectedDate = todayISO();
+    picker.style.display = 'none';
+  } else if (tab === 'yesterday') {
+    selectedDate = yesterdayISO();
+    picker.style.display = 'none';
+  } else {
+    picker.style.display = 'block';
+    const ci = document.getElementById('customDate');
+    ci.max = todayISO();
+    if (!ci.value) ci.value = yesterdayISO();
+    selectedDate = ci.value;
+  }
+  updateBanners();
+}
+
+function updateSelectedDate() {
+  selectedDate = document.getElementById('customDate').value;
+  updateBanners();
+}
+
+function updateBanners() {
+  const entries = loadEntries();
+  const exists = entries.find(e => e.date === selectedDate);
+  const isToday = selectedDate === todayISO();
+  const isYesterday = selectedDate === yesterdayISO();
+
+  document.getElementById('todayBanner').style.display    = exists ? 'block' : 'none';
+  document.getElementById('yesterdayBanner').style.display = (!isToday && isYesterday) ? 'block' : 'none';
+
+  if (exists && !isToday && !isYesterday) {
+    document.getElementById('yesterdayBanner').style.display = 'block';
+    document.getElementById('yesterdayBanner').textContent   = `Du trägst für ${new Date(selectedDate).toLocaleDateString('de-DE', {day:'numeric', month:'long'})} nach`;
+  }
+}
+
+// ── Dots ──
 function buildDots() {
-  const c = document.getElementById('dots');
-  c.innerHTML = '';
+  const c = document.getElementById('dots'); c.innerHTML = '';
   LEVELS.forEach(l => {
     const d = document.createElement('div');
     d.className = 'dot'; d.textContent = l.value; d.id = 'dot-' + l.value;
@@ -204,83 +337,152 @@ function updateDots() {
   document.getElementById('levelName').style.color = lvl.color;
   LEVELS.forEach(l => {
     const d = document.getElementById('dot-' + l.value);
-    d.style.background    = currentLevel >= l.value ? l.color : '#F0E8DE';
-    d.style.borderColor   = currentLevel === l.value ? l.color : 'transparent';
-    d.style.color         = currentLevel >= l.value ? 'white' : '#C8B8A8';
-    d.style.boxShadow     = currentLevel === l.value ? `0 4px 14px ${l.color}44` : 'none';
-    d.style.transform     = currentLevel === l.value ? 'scale(1.12)' : 'scale(1)';
+    d.style.background  = currentLevel >= l.value ? l.color : '#F0E8DE';
+    d.style.borderColor = currentLevel === l.value ? l.color : 'transparent';
+    d.style.color       = currentLevel >= l.value ? 'white' : '#C8B8A8';
+    d.style.boxShadow   = currentLevel === l.value ? `0 4px 14px ${l.color}44` : 'none';
+    d.style.transform   = currentLevel === l.value ? 'scale(1.12)' : 'scale(1)';
   });
 }
 
-// Tags & Drains
+// ── Tags & Drains ──
 function buildTags() {
-  const tc = document.getElementById('tags');
-  tc.innerHTML = '';
+  const tc = document.getElementById('tags'); tc.innerHTML = '';
   TAGS.forEach(item => {
     const btn = document.createElement('button');
-    btn.className = 'tag-btn'; btn.textContent = item.icon + ' ' + item.label;
-    btn.id = 'tag-btn-' + item.id;
-    btn.onclick = () => {
-      if (selectedTags.includes(item.id)) selectedTags = selectedTags.filter(t => t !== item.id);
-      else selectedTags.push(item.id);
-      btn.classList.toggle('active');
-    };
+    btn.className = 'tag-btn'; btn.textContent = item.icon + ' ' + item.label; btn.id = 'tag-btn-' + item.id;
+    btn.onclick = () => { if (selectedTags.includes(item.id)) selectedTags = selectedTags.filter(t => t !== item.id); else selectedTags.push(item.id); btn.classList.toggle('active'); };
     tc.appendChild(btn);
   });
-
-  const dc = document.getElementById('drains');
-  dc.innerHTML = '';
+  const dc = document.getElementById('drains'); dc.innerHTML = '';
   DRAINS.forEach(item => {
     const btn = document.createElement('button');
-    btn.className = 'drain-btn'; btn.textContent = item.icon + ' ' + item.label;
-    btn.id = 'drain-btn-' + item.id;
-    btn.onclick = () => {
-      if (selectedDrains.includes(item.id)) selectedDrains = selectedDrains.filter(d => d !== item.id);
-      else selectedDrains.push(item.id);
-      btn.classList.toggle('active');
-    };
+    btn.className = 'drain-btn'; btn.textContent = item.icon + ' ' + item.label; btn.id = 'drain-btn-' + item.id;
+    btn.onclick = () => { if (selectedDrains.includes(item.id)) selectedDrains = selectedDrains.filter(d => d !== item.id); else selectedDrains.push(item.id); btn.classList.toggle('active'); };
     dc.appendChild(btn);
   });
 }
 
-function checkToday() {
-  const todayStr = now.toISOString().split('T')[0];
-  const entries = loadEntries();
-  document.getElementById('todayBanner').style.display =
-    entries.find(e => e.date === todayStr) ? 'block' : 'none';
-}
-
+// ── Save ──
 function saveEntry() {
-  const todayStr = now.toISOString().split('T')[0];
-  const entry = { date: todayStr, level: currentLevel, tags: [...selectedTags], drains: [...selectedDrains], note: document.getElementById('noteInput').value, ts: Date.now() };
-  const entries = loadEntries().filter(e => e.date !== todayStr);
+  const entry = { date: selectedDate, level: currentLevel, tags: [...selectedTags], drains: [...selectedDrains], note: document.getElementById('noteInput').value, ts: Date.now() };
+  const entries = loadEntries().filter(e => e.date !== selectedDate);
   entries.unshift(entry);
+  entries.sort((a,b) => b.date.localeCompare(a.date));
   saveEntries(entries);
   const btn = document.getElementById('saveBtn');
   btn.textContent = '✓  Gespeichert'; btn.classList.add('saved');
   document.getElementById('savedMsg').style.display = 'block';
-  document.getElementById('todayBanner').style.display = 'block';
-  updateHistoryNav();
+  updateBanners(); updateHistoryNav();
   setTimeout(() => { btn.textContent = 'Eintragen'; btn.classList.remove('saved'); document.getElementById('savedMsg').style.display = 'none'; }, 2500);
 }
 
 function updateHistoryNav() {
-  const entries = loadEntries();
-  document.getElementById('historyNavBtn').textContent =
-    entries.length > 0 ? `Verlauf (${entries.length})` : 'Verlauf';
+  const n = loadEntries().length;
+  document.getElementById('historyNavBtn').textContent = n > 0 ? `Verlauf (${n})` : 'Verlauf';
 }
 
+// ── View switch ──
 function showView(viewId, btn) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('view-' + viewId).classList.add('active');
   btn.classList.add('active');
-  if (viewId === 'history') renderHistory();
+  if (viewId === 'history')  renderHistory();
+  if (viewId === 'settings') renderSettings();
 }
 
+// ── Notifications ──
+function toggleNotification() {
+  const on = document.getElementById('notifToggle').checked;
+  if (on) {
+    if (!('Notification' in window)) { showNotifStatus('not-supported'); document.getElementById('notifToggle').checked = false; return; }
+    Notification.requestPermission().then(perm => {
+      if (perm === 'granted') {
+        const settings = loadSettings();
+        settings.notifEnabled = true;
+        settings.notifTime = document.getElementById('reminderTime').value;
+        saveSettings(settings);
+        showNotifStatus('ok');
+        document.getElementById('timeRow').style.opacity = '1';
+        document.getElementById('timeRow').style.pointerEvents = 'auto';
+        scheduleReminder();
+      } else {
+        showNotifStatus('denied');
+        document.getElementById('notifToggle').checked = false;
+      }
+    });
+  } else {
+    const settings = loadSettings();
+    settings.notifEnabled = false;
+    saveSettings(settings);
+    if (reminderInterval) { clearInterval(reminderInterval); reminderInterval = null; }
+    showNotifStatus('off');
+    document.getElementById('timeRow').style.opacity = '0.4';
+    document.getElementById('timeRow').style.pointerEvents = 'none';
+  }
+}
+
+function saveReminderTime() {
+  const settings = loadSettings();
+  settings.notifTime = document.getElementById('reminderTime').value;
+  saveSettings(settings);
+  scheduleReminder();
+  showNotifStatus('ok');
+}
+
+function scheduleReminder() {
+  if (reminderInterval) clearInterval(reminderInterval);
+  reminderInterval = setInterval(() => {
+    const settings = loadSettings();
+    if (!settings.notifEnabled) return;
+    const now = new Date();
+    const [h, m] = (settings.notifTime || '20:00').split(':').map(Number);
+    if (now.getHours() === h && now.getMinutes() === m) {
+      const todayStr = todayISO();
+      const entries = loadEntries();
+      if (!entries.find(e => e.date === todayStr)) {
+        new Notification('Wild Moms Energie-Tracker 🌿', {
+          body: 'Wie war dein Energielevel heute? Nimm dir einen Moment für dich.',
+          icon: ''
+        });
+      }
+    }
+  }, 60000);
+}
+
+function showNotifStatus(type) {
+  const el = document.getElementById('notifStatus');
+  const msgs = {
+    'ok':            ['notif-ok',   '✓ Erinnerung aktiv – du wirst täglich benachrichtigt.'],
+    'denied':        ['notif-warn', '⚠ Benachrichtigungen wurden blockiert. Bitte in den Browser-Einstellungen erlauben.'],
+    'not-supported': ['notif-warn', '⚠ Dein Browser unterstützt leider keine Benachrichtigungen.'],
+    'off':           ['notif-info', 'Erinnerung deaktiviert.'],
+  };
+  const [cls, text] = msgs[type] || ['notif-info', ''];
+  el.className = 'notif-status ' + cls;
+  el.textContent = text;
+}
+
+function renderSettings() {
+  const settings = loadSettings();
+  const toggle = document.getElementById('notifToggle');
+  const timeRow = document.getElementById('timeRow');
+  toggle.checked = !!settings.notifEnabled;
+  document.getElementById('reminderTime').value = settings.notifTime || '20:00';
+  if (settings.notifEnabled) {
+    timeRow.style.opacity = '1'; timeRow.style.pointerEvents = 'auto';
+    showNotifStatus('ok');
+    scheduleReminder();
+  } else {
+    timeRow.style.opacity = '0.4'; timeRow.style.pointerEvents = 'none';
+  }
+}
+
+// ── History ──
 function renderHistory() {
   const entries = loadEntries();
-  const todayStr = now.toISOString().split('T')[0];
+  const todayStr = todayISO();
   const container = document.getElementById('historyContent');
 
   if (entries.length === 0) {
@@ -290,99 +492,69 @@ function renderHistory() {
 
   let html = '';
 
-  // ── Wochentag-Auswertung (ab 7 Einträgen) ──
+  // Wochentag-Auswertung
   if (entries.length >= 7) {
     const wdData = {};
     entries.forEach(e => {
       const wd = new Date(e.date).getDay();
-      if (!wdData[wd]) wdData[wd] = { sum: 0, count: 0 };
-      wdData[wd].sum += e.level;
-      wdData[wd].count++;
+      if (!wdData[wd]) wdData[wd] = { sum:0, count:0 };
+      wdData[wd].sum += e.level; wdData[wd].count++;
     });
     const wdAvgs = Object.entries(wdData)
-      .filter(([, d]) => d.count >= 2)
-      .map(([wd, d]) => ({ wd: parseInt(wd), avg: d.sum / d.count, count: d.count }));
-
+      .filter(([,d]) => d.count >= 2)
+      .map(([wd,d]) => ({ wd:parseInt(wd), avg: d.sum/d.count }));
     if (wdAvgs.length >= 3) {
-      const sorted = [...wdAvgs].sort((a, b) => a.wd - b.wd);
       const avgs = wdAvgs.map(d => d.avg);
-      const maxAvg = Math.max(...avgs);
-      const minAvg = Math.min(...avgs);
+      const maxAvg = Math.max(...avgs), minAvg = Math.min(...avgs);
       const bestWd = wdAvgs.find(d => d.avg === maxAvg);
       const worstWd = wdAvgs.find(d => d.avg === minAvg);
-
-      html += `<div class="weekday-card">
-        <p class="card-label" style="margin-bottom:6px">Energie nach Wochentag</p>
-        <p style="font-family:'Overpass',sans-serif;font-size:12px;color:#B0A090;margin-bottom:14px">Nur Tage mit mindestens 2 Einträgen</p>`;
-
+      const sorted = [...wdAvgs].sort((a,b) => a.wd - b.wd);
+      html += `<div class="weekday-card"><p class="card-label" style="margin-bottom:6px">Energie nach Wochentag</p><p style="font-family:'Overpass',sans-serif;font-size:12px;color:#B0A090;margin-bottom:14px">Nur Tage mit mindestens 2 Einträgen</p>`;
       sorted.forEach(d => {
         const isBest  = d.wd === bestWd.wd;
         const isWorst = d.wd === worstWd.wd && maxAvg !== minAvg;
-        const pct = Math.round((d.avg / 5) * 100);
+        const pct = Math.round((d.avg/5)*100);
         const color = isBest ? '#6B8F6E' : isWorst ? '#C4847A' : '#C9A97A';
-        const badge = isBest
-          ? `<span class="weekday-badge badge-best">✨ Krafttag</span>`
-          : isWorst
-          ? `<span class="weekday-badge badge-worst">↓ Energiearm</span>`
-          : '';
-        html += `<div class="weekday-row">
-          <span class="weekday-name">${WEEKDAYS[d.wd]}</span>
-          <div class="weekday-bar-wrap"><div class="weekday-bar" style="width:${pct}%;background:${color}"></div></div>
-          <span class="weekday-val" style="color:${color}">${d.avg.toFixed(1)}</span>
-          ${badge}
-        </div>`;
+        const badge = isBest ? `<span class="weekday-badge badge-best">✨ Krafttag</span>` : isWorst ? `<span class="weekday-badge badge-worst">↓ Energiearm</span>` : '';
+        html += `<div class="weekday-row"><span class="weekday-name">${WEEKDAYS[d.wd]}</span><div class="weekday-bar-wrap"><div class="weekday-bar" style="width:${pct}%;background:${color}"></div></div><span class="weekday-val" style="color:${color}">${d.avg.toFixed(1)}</span>${badge}</div>`;
       });
-
       html += `</div>`;
     }
   }
 
-  // ── 7-Tage-Zusammenfassung ──
+  // 7-Tage-Zusammenfassung
   if (entries.length >= 3) {
-    const recent = entries.slice(0, 7);
-    const avg = (recent.reduce((s, e) => s + e.level, 0) / recent.length).toFixed(1);
+    const recent = entries.slice(0,7);
+    const avg = (recent.reduce((s,e) => s+e.level,0)/recent.length).toFixed(1);
     const tagCounts = {};
-    recent.forEach(e => (e.tags || []).forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; }));
-    const topTag = Object.entries(tagCounts).sort((a, b) => b[1] - a[1])[0];
-    const topTagObj = topTag ? TAGS.find(t => t.id === topTag[0]) : null;
-    html += `<div class="summary-card">
-      <p class="card-label">Letzte 7 Tage</p>
-      <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:8px">
-        <div><span class="summary-avg">${avg}</span><span class="summary-label">Ø Energie</span></div>
-        ${topTagObj ? `<div style="display:flex;align-items:center"><span style="font-size:20px">${topTagObj.icon}</span><span class="summary-label" style="margin-left:8px">${topTagObj.label} war deine häufigste Kraftquelle</span></div>` : ''}
-      </div>
-    </div>`;
+    recent.forEach(e => (e.tags||[]).forEach(t => { tagCounts[t]=(tagCounts[t]||0)+1; }));
+    const topTag = Object.entries(tagCounts).sort((a,b)=>b[1]-a[1])[0];
+    const topTagObj = topTag ? TAGS.find(t=>t.id===topTag[0]) : null;
+    html += `<div class="summary-card"><p class="card-label">Letzte 7 Tage</p><div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:8px"><div><span class="summary-avg">${avg}</span><span class="summary-label">Ø Energie</span></div>${topTagObj?`<div style="display:flex;align-items:center"><span style="font-size:20px">${topTagObj.icon}</span><span class="summary-label" style="margin-left:8px">${topTagObj.label} war deine häufigste Kraftquelle</span></div>`:''}</div></div>`;
   }
 
-  // ── Einzeleinträge ──
-  entries.slice(0, 30).forEach(entry => {
-    const lvl = LEVELS.find(l => l.value === entry.level);
+  // Einträge
+  entries.slice(0,30).forEach(entry => {
+    const lvl = LEVELS.find(l=>l.value===entry.level);
     const d = new Date(entry.date);
     const isToday = entry.date === todayStr;
-    const dateLabel = isToday ? 'Heute' : d.toLocaleDateString('de-DE', { weekday:'short', day:'numeric', month:'short' });
-    const tagsHtml = (entry.tags || []).length > 0
-      ? `<div class="history-tags">${entry.tags.map(t => TAGS.find(tg=>tg.id===t)?.icon||'').join(' ')}&nbsp;&nbsp;<span style="color:#C0B0A0">${entry.tags.map(t=>TAGS.find(tg=>tg.id===t)?.label||'').join(', ')}</span></div>` : '';
-    const drainsHtml = (entry.drains || []).length > 0
-      ? `<div class="history-drains">${entry.drains.map(dr=>DRAINS.find(d=>d.id===dr)?.icon||'').join(' ')}&nbsp;&nbsp;<span style="color:#C0B0A0">${entry.drains.map(dr=>DRAINS.find(d=>d.id===dr)?.label||'').join(', ')}</span></div>` : '';
-    const noteHtml = entry.note ? `<div class="history-note">„${entry.note}"</div>` : '';
-
-    html += `<div class="history-row">
-      <div class="history-dot" style="background:${lvl.color}">${entry.level}</div>
-      <div style="flex:1;min-width:0">
-        <div class="history-date">${dateLabel}</div>
-        <div class="history-level" style="color:${lvl.color}">${lvl.label}</div>
-        ${tagsHtml}${drainsHtml}${noteHtml}
-      </div>
-    </div>`;
+    const dateLabel = isToday ? 'Heute' : d.toLocaleDateString('de-DE',{weekday:'short',day:'numeric',month:'short'});
+    const tagsHtml   = (entry.tags||[]).length>0 ? `<div class="history-tags">${entry.tags.map(t=>TAGS.find(tg=>tg.id===t)?.icon||'').join(' ')}&nbsp;&nbsp;<span style="color:#C0B0A0">${entry.tags.map(t=>TAGS.find(tg=>tg.id===t)?.label||'').join(', ')}</span></div>` : '';
+    const drainsHtml = (entry.drains||[]).length>0 ? `<div class="history-drains">${entry.drains.map(dr=>DRAINS.find(d=>d.id===dr)?.icon||'').join(' ')}&nbsp;&nbsp;<span style="color:#C0B0A0">${entry.drains.map(dr=>DRAINS.find(d=>d.id===dr)?.label||'').join(', ')}</span></div>` : '';
+    const noteHtml   = entry.note ? `<div class="history-note">„${entry.note}"</div>` : '';
+    html += `<div class="history-row"><div class="history-dot" style="background:${lvl.color}">${entry.level}</div><div style="flex:1;min-width:0"><div class="history-date">${dateLabel}</div><div class="history-level" style="color:${lvl.color}">${lvl.label}</div>${tagsHtml}${drainsHtml}${noteHtml}</div></div>`;
   });
 
   container.innerHTML = html;
 }
 
+// Init
 buildDots();
 buildTags();
-checkToday();
+updateBanners();
 updateHistoryNav();
+const _s = loadSettings();
+if (_s.notifEnabled && Notification.permission === 'granted') scheduleReminder();
 </script>
 </body>
 </html>
